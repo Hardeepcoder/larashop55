@@ -18,3 +18,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('send',function(){
+	
+	request()->validate([
+		'name' => ['required', new App\Rules\minMaxLength]
+	]);
+	echo "submit done";
+	
+});
