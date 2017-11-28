@@ -44,7 +44,7 @@
             </div>
 
             <ul class="nav">
-                <li class="active">
+                <li>
                     <a href="{{url('/admin')}}">
                         <i class="pe-7s-graph"></i>
                         <p>Dashboard</p>

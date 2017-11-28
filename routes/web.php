@@ -25,4 +25,9 @@ Route::group(['prefix' => 'admin', 'middleware'=> ['auth' => 'admin']], function
     Route::get('profile','AdminController@profile');
     Route::get('/addProduct','AdminController@addProduct');
     Route::post('saveProduct', 'AdminController@saveProduct');
-});
+    // new route method by laravel 5.5
+    Route::view('products', 'admin.products', [
+      'data' => App\products::all()
+    ]);
+    Route::view('editProduct/{id}', 'admin.editproduct');
+  });
