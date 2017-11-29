@@ -1,5 +1,6 @@
 @extends('admin.master')
-@section('title', 'Profile')
+@section('title', 'Admin')
+
 @section('content')
 
 <div class="content">
@@ -7,9 +8,9 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="card">
-                         
+
                             <div class="content">
-                            <h2>Profile</h2>
+                            <h2>Edit product - {{request()->route('id')}}</h2>
                             <p>Etiam et tellus sem. Etiam blandit sollicitudin lectus vitae faucibus. Donec et massa fringilla.</p>
                                 <div class="footer">
                                 <p>hasellus non imperdiet sem, vel posuere tellus</p>
@@ -20,7 +21,7 @@
 
                     <div class="col-md-8">
                         <div class="card">
-                            
+
                             <div class="content">
                            <p> Fusce quis dictum erat, ornare mattis quam. Pellentesque eget ipsum hendrerit, feugiat risus lacinia, accumsan eros. In fringilla volutpat elementum. Integer volutpat ex ut pharetra auctor. Vivamus turpis arcu, sollicitudin id est nec, imperdiet consectetur sapien. Integer quis volutpat velit, id auctor leo</p>
                                 <div class="footer">
@@ -31,7 +32,7 @@
                     </div>
                 </div>
 
-                
+
             </div>
         </div>
 

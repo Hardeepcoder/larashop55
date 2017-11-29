@@ -23,6 +23,9 @@ class User extends Authenticatable
      *
      * @var array
      */
+     public function isRole(){
+        return $this->role; // mysql table column
+      }
     protected $hidden = [
         'password', 'remember_token',
     ];

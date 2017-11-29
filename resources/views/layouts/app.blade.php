@@ -8,11 +8,13 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name') }}</title>
 
     <!-- Styles -->
-    <link href="{{Config::get('app.url')}}/public/ss/app.css" rel="stylesheet">
-</head>
+    <link href="{{Config::get('app.url')}}/public/css/app.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	</head>
 <body>
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
@@ -29,7 +31,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+					{{ config('app.name') }}  
                     </a>
                 </div>
 
@@ -75,6 +77,6 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{Config::get('app.url')}}/public/js/app.js"></script>
 </body>
 </html>
