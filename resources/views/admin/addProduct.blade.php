@@ -29,7 +29,11 @@ $(document).ready(function(){
     function(){
       $('#products').load('<?php echo url('admin/products');?>').fadeIn("slow");
     },100);
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 943695f61b3c1b800c50ba7a5186c60338c732b9
 
 });
 </script>
