@@ -8,15 +8,16 @@ $(document).ready(function(){
   //alert("working");
   $("#btn").click(function(){
     $("#msg").show();
-
+    var cat_id = $("#cat_id").val()
     var pro_name = $("#pro_name").val();
     var pro_code = $("#pro_code").val();
     var pro_price = $("#pro_price").val();
+    var pro_info = $("#pro_info").val();
     var token = $("#token").val();
-
+    alert(cat_id);
     $.ajax({
       type: "post",
-      data: "pro_name=" + pro_name + "&pro_code=" + pro_code + "&pro_price=" + pro_price + "&_token=" + token,
+      data: "pro_name=" + pro_name + "&pro_code=" + pro_code + "&pro_price=" + pro_price + "&_token=" + token + "&cat_id=" + cat_id + "&pro_info=" + pro_info,
       url: "<?php echo url('/admin/saveProduct') ?>",
       success:function(data){
         $("#msg").html("Product has been inserted");
@@ -29,12 +30,6 @@ $(document).ready(function(){
     function(){
       $('#products').load('<?php echo url('admin/products');?>').fadeIn("slow");
     },100);
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> 943695f61b3c1b800c50ba7a5186c60338c732b9
-
 });
 </script>
 <div class="content">
@@ -48,6 +43,16 @@ $(document).ready(function(){
                             <p id="msg" class="alert alert-success"></p>
 
                           <input type="hidden" value="{{csrf_token()}}" id="token"/>
+
+                          <label>Categories</label>
+
+                          <select id="cat_id" class="form-control">
+                            <option value="">please select a category</option>
+                            @foreach(App\cats::all() as $cData)
+                            <option value="{{$cData->id}}">{{$cData->cat_name}}</option>
+                            @endforeach
+                          </select>
+                          <br>
                               <label>Product Name</label>
                               <input type="text" id="pro_name" class="form-control"/>
                               <br>
@@ -58,6 +63,10 @@ $(document).ready(function(){
 
                               <label>Product Price</label>
                               <input type="text" id="pro_price" class="form-control"/>
+                              <br>
+
+                              <label>Product Info</label>
+                              <textarea id="pro_info" class="form-control"></textarea>
                               <br>
                                 <input type="submit" class="btn btn-success btn-fill" value="Submit" id="btn"/>
 
@@ -71,11 +80,28 @@ $(document).ready(function(){
 
                     <div class="col-md-5">
                         <div class="card">
+                          <table  class="table table-hover table-striped" >
+                            <tr >
+                          <td colspan="5" align="right"><b>Total:</b> {{App\products::count()}}</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #ccc;">
+                              <th style="padding:10px">Product Name</th>
+                              <th style="padding:10px">Product Code</th>
+                              <th style="padding:10px">Catgeory</th>
+                              <th style="padding:10px">Price</th>
+                              <th>Update</th>
+                            </tr>
+                          </table>
+                            <div class="content"
+                             style="height:400px; overflow-y:scroll">
 
-                            <div class="content" id="products">
-                           <p> Fusce quis dictum erat, ornare mattis quam. Pellentesque eget ipsum hendrerit, feugiat risus lacinia, accumsan eros. In fringilla volutpat elementum. Integer volutpat ex ut pharetra auctor. Vivamus turpis arcu, sollicitudin id est nec, imperdiet consectetur sapien. Integer quis volutpat velit, id auctor leo</p>
+                                <div id="products">
+                                  <img src="{{url('public/img/loading.gif')}}"
+                                  style="width:100%; text-align:center">
+                                </div>
+
                                 <div class="footer">
-                                <p>Donec congue eleifend sapien, in molestie diam vulputate sit amet</p>
+
                                 </div>
                             </div>
                         </div>

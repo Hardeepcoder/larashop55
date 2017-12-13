@@ -10,6 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('test',function(){
+  return App\products::with('cats')->get();
+});
+
 Route::view('/', 'front.index');
 Auth::routes();
 
@@ -30,7 +34,7 @@ Route::group(['prefix' => 'admin', 'middleware'=> ['auth' => 'admin']], function
     Route::post('saveProduct', 'AdminController@saveProduct');
     // new route method by laravel 5.5
     Route::view('products', 'admin.products', [
-      'data' => App\products::all()
+      'data' => App\products::with('cats')->get()
     ]);
 
     //edit product
@@ -44,4 +48,13 @@ Route::group(['prefix' => 'admin', 'middleware'=> ['auth' => 'admin']], function
     //change image
     Route::view('/changeImage/{id}','admin.changeImage');
     Route::post('/uploadPP','AdminController@uploadPP');
+
+    Route::view('addCategory','admin.addCategory');
+    Route::view('cats','admin.cats',[
+      'data' => App\cats::all()
+    ]);
+
+    Route::post('saveCategory','AdminController@saveCategory');
+
+
   });

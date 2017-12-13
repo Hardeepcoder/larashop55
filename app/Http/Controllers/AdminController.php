@@ -24,6 +24,7 @@ class AdminController extends Controller
       $pro_code = $request->pro_code;
       $pro_price = $request->pro_price;
       $pro_info = $request->pro_info;
+      $cat_id = $request->cat_id;
       if(isset($request->id)){
         //update the pro
         $id = $request->id;
@@ -33,6 +34,7 @@ class AdminController extends Controller
           'pro_code' => $pro_code,
           'pro_info' => $pro_info,
           'pro_price' => $pro_price,
+
           //'pro_img' => "img.jpg",
           //'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
@@ -44,6 +46,7 @@ class AdminController extends Controller
         'pro_code' => $pro_code,
         'pro_price' => $pro_price,
         'pro_info' => $pro_info,
+        'cat_id' => $cat_id,
         'pro_img' => "img.jpg",
         'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
           'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
@@ -79,6 +82,24 @@ class AdminController extends Controller
       }
 
     }
+
+    public function saveCategory(Request $request){
+      $cat_name = $request->cat_name;
+
+      $add_cat = DB::table('cats')->insert([
+        'cat_name' => $cat_name,
+        'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+        'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
+
+      ]);
+      if($add_cat){
+        echo "done";
+      }else{
+        echo "error";
+      }
+    }
+
+
 
 
 }

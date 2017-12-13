@@ -33,7 +33,7 @@
 <body>
 
 <div class="wrapper">
-    <div class="sidebar" data-color="azure" data-image="{{Config::get('app.url')}}/admin_theme/assets/img/sidebar-5.jpg">
+    <div class="sidebar" data-color="blue" data-image="{{Config::get('app.url')}}/admin_theme/assets/img/sidebar-5.jpg">
 
 
     	<div class="sidebar-wrapper">
@@ -52,10 +52,24 @@
                 </li>
 
 								<li>
+									<a href="{{url('/admin/profile')}}">
+										<i class="pe-7s-user"></i>
+										<p>Profile</p>
+									</a>
+								</li>
+
+								<li>
 										<a href="{{url('/admin/addProduct')}}">
-												<i class="pe-7s-graph"></i>
-												<p>Add Product</p>
+												<i class="pe-7s-note2"></i>
+												<p>Product</p>
 										</a>
+								</li>
+
+								<li>
+									<a href="{{url('/admin/addCategory')}}">
+										<i class="pe-7s-notebook"></i>
+										<p>Category</p>
+									</a>
 								</li>
 
             </ul>
