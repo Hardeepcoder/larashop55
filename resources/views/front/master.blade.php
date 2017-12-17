@@ -20,9 +20,10 @@
 							<li><a href="/">MY ACCOUNT</a></li>
 							<li><a onclick="javascript:showDiv('slidingDiv');" href="javascript:;">SEARCH</a>
 								<div id="slidingDiv" class="srchBox">
-									 <input type="text" value="" />
+									<form action="{{url('search')}}">
+									 <input type="text" name="searchData" />
 						            <i class="fa fa-search"></i>
-
+											</form>
 						        </div>
 							</li>
 							<li><a href="/">LOGIN</a></li>
@@ -42,10 +43,10 @@
 
 						<li><a href="/">Products</a>
 							<ul class="dropdown">
-				                <li><a href="#">Suspendisse semper</a></li>
-				                <li><a href="#">lorem gravida</a></li>
-				                <li><a href="#">Vestibulum</a></li>
-				                <li><a href="#">Tincidunt </a></li>
+								@foreach(App\cats::all() as $catList)
+				                <li><a href="{{url('products')}}/{{$catList->cat_name}}">
+													{{$catList->cat_name}}</a></li>
+				          @endforeach
 				            </ul>
 						</li>
 

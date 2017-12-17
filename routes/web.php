@@ -18,7 +18,10 @@ Route::view('/', 'front.index');
 Auth::routes();
 
 //products
-Route::view('products','front.products',['data'=> App\products::all()]);
+Route::view('products','front.products',['data'=> App\products::all(),
+'catByUser' => 'All Products']);
+Route::get('products/{cat}','ProductsController@proCat');
+Route::get('search','ProductsController@search');
 
 //user middleware
 Route::group(['middleware' => 'auth'], function () {

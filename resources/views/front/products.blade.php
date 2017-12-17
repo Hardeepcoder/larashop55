@@ -9,12 +9,20 @@
 				<div class="breadcrumbs">
 			        <ul>
 			          <li><a href="#">Home</a></li>
-			          <li><span class="dot">/</span> <a href="#">New Arrivals</a> </li>
+			          <li><span class="dot">/</span>
+                  @if(count($data)=="0")
+                  <b>{{$catByUser}}</b>
+                  @else
+                    <a href="{{url('products')}}/{{$catByUser}}">
+                      {{$catByUser}}</a>
+                  @endif
+                 </li>
 			        </ul>
                 </div>
                 </div>
 		    </div>
-		    <h1 class="text-center">Daily Health Supplements </h1>
+		  @if(count($data)!="0")
+        <h1 class="text-center">{{$catByUser}} </h1>
 		    <div class="row">
 		    		<div class="col-xs-6 col-sm-3">
 				    	<div class="nice-select">
@@ -34,7 +42,8 @@
 						    <option value="ooh">Ooh</option>
 						    <option value="whoop">Whoop</option>
 						</select>
-				    </div>
+          </div>
+
 
 				<div class="col-sm-6 hidden-xs">
 					<div class="row">
@@ -51,13 +60,25 @@
 						<div class="styleNm">16 style(s)</div>
 					</div>
 				</div>
+        @endif
 		    </div>
 	    	<div class="row top25">
+        @if(count($data)=="0")
+        <div class="col-md-12" align="center">
+
+            <h1 align="center" style="margin:20px">
+              No products found under
+              <b style="color:red">{{$catByUser}} </b>
+                Category </h1>
+
+        </div>
+        @else
           @foreach($data as $p)
           <div class="col-xs-6 col-sm-4">
 	    			<div class="itemBox">
 	    				<div class="prod"><img
-                src="{{Config::get('app.url')}}/public/img/{{$p->pro_img}}" alt="" /></div>
+                src="{{Config::get('app.url')}}/public/img/{{$p->pro_img}}" alt=""
+                width="400px" height="360px" /></div>
 	    				<label>{{$p->pro_name}}</label>
 	    				<span class="hidden-xs">Code: {{$p->pro_code}}
               <br>
@@ -69,6 +90,7 @@
 	    			</div>
 	    		</div>
           @endforeach
+          @endif
 	    		<?php /*<div class="col-xs-6 col-sm-4">
 	    			<div class="itemBox">
 	    				<div class="prod"><img src="{{Config::get('app.url')}}/theme/images/2.jpg" alt="" /></div>
