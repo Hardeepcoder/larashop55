@@ -19,6 +19,19 @@ class ProductsController extends Controller
       ]);
     }
 
+    public function productsCat(Request $request){
+       $cat_id = $request->cat_id;
+
+       $data = DB::table('products')
+       ->join('cats','cats.id','products.cat_id')
+       ->where('products.cat_id',$cat_id)
+       ->get();
+       return view('front.produtsPage',[
+         'data' => $data, 'catByUser' => $data[0]->cat_name
+       ]);
+    }
+
+
     public function search(Request $request){
       $searchData= $request->searchData;
 

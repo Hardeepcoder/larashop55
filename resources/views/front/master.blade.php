@@ -7,6 +7,14 @@
 <link type="text/css" href="{{Config::get('app.url')}}/theme/css/font-awesome.css" rel="stylesheet" />
 <link type="text/css" href="{{Config::get('app.url')}}/theme/css/style.css" rel="stylesheet"/>
 <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="{{Config::get('app.url')}}/theme/js/jquery-1.11.3.js"></script>
+
+<style>
+.greyBg{ margin-top:20px}
+.list option{
+	margin-top: 10px
+}
+</style>
 </head>
 <body>
 <header id="header" class="hidden-xs">
@@ -40,13 +48,12 @@
     		<div class="col-sm-8">
 				<div class="nav-link">
 					<ul>
-
-						<li><a href="/">Products</a>
+						<li><a href="{{url('/products')}}">Products</a>
 							<ul class="dropdown">
 								@foreach(App\cats::all() as $catList)
-				                <li><a href="{{url('products')}}/{{$catList->cat_name}}">
+				        <li><a href="{{url('products')}}/{{$catList->cat_name}}">
 													{{$catList->cat_name}}</a></li>
-				          @endforeach
+				         @endforeach
 				            </ul>
 						</li>
 
@@ -163,7 +170,6 @@
   </div>
 </footer>
 <script type="text/javascript" src="{{Config::get('app.url')}}/theme/js/html5.js"></script>
-<script type="text/javascript" src="{{Config::get('app.url')}}/theme/js/jquery-1.11.3.js"></script>
 <script type="text/javascript" src="{{Config::get('app.url')}}/theme/js/bootstrap.js"></script>
 <script type="text/javascript" src="{{Config::get('app.url')}}/theme/js/multiple-accordion.js"></script>
 <script type="text/javascript" src="{{Config::get('app.url')}}/theme/js/jquery.nice-select.js"></script>
@@ -198,7 +204,7 @@ $(function() {
 
     $(document).ready(function() {
       $('select').niceSelect();
-      FastClick.attach(document.body);
+    //  FastClick.attach(document.body);
     });
 </script>
 <script>

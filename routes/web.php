@@ -23,6 +23,9 @@ Route::view('products','front.products',['data'=> App\products::all(),
 Route::get('products/{cat}','ProductsController@proCat');
 Route::get('search','ProductsController@search');
 
+//pro by ajax with cat id
+Route::get('productsCat','ProductsController@productsCat');
+
 //user middleware
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/home', 'HomeController@index')->name('home');
