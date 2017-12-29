@@ -10,9 +10,13 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('test',function(){
-  return App\products::with('cats')->get();
+  return App\cats::with('childs')
+  ->where('p_id',0)
+  ->get();
 });
+
 
 Route::view('/', 'front.index');
 Auth::routes();

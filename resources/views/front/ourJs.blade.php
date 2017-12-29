@@ -1,22 +1,23 @@
 <script>
 $(document).ready(function(){
-  // get catgeory id
-  @foreach(App\cats::all() as $catList)
-  $("#cat{{$catList->id}}").click(function(){
-    var cat = $("#cat{{$catList->id}}").val();
-    //alert(cat);
 
+  $("#findBtn").click(function(){
+    var cat = $("#catID").val();
+    var price = $('#priceID').val();
+    
     $.ajax({
       type: 'get',
       dataType: 'html',
       url: '{{url('/productsCat')}}',
-      data: 'cat_id=' + cat,
+      data: 'cat_id=' + cat + '&price=' + price,
       success:function(response){
         console.log(response);
         $("#productData").html(response);
       }
     });
+
+
   });
-  @endforeach
+
 });
 </script>

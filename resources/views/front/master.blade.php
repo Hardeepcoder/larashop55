@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1; user-scalable=no"  />
 <title>LaraShop 55</title>
 <link type="text/css" href="{{Config::get('app.url')}}/theme/css/bootstrap.css" rel="stylesheet"/>
 <link type="text/css" href="{{Config::get('app.url')}}/theme/css/font-awesome.css" rel="stylesheet" />
 <link type="text/css" href="{{Config::get('app.url')}}/theme/css/style.css" rel="stylesheet"/>
-<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="{{Config::get('app.url')}}/theme/js/jquery-1.11.3.js"></script>
 
 <style>
@@ -50,11 +48,32 @@
 					<ul>
 						<li><a href="{{url('/products')}}">Products</a>
 							<ul class="dropdown">
-								@foreach(App\cats::all() as $catList)
+								<?php /*@foreach(App\cats::all() as $catList)
 				        <li><a href="{{url('products')}}/{{$catList->cat_name}}">
 													{{$catList->cat_name}}</a></li>
 				         @endforeach
-				            </ul>
+								 */?>
+								 @foreach(App\cats::with('childs')
+								 ->where('p_id',0)->get() as $item)
+								 @if($item->childs->count()>0)
+								 <li>
+									 <a href="{{url('products')}}/{{$item->cat_name}}"><h4>{{$item->cat_name}}</h3></a>
+									 @foreach($item->childs as $subMenu)
+									 <ul>
+										 <li><a href="{{url('products')}}/{{$subMenu->cat_name}}">
+											 --{{$subMenu->cat_name}}</a></li>
+									 </ul>
+									 @endforeach
+								 </li>
+								 @else
+								 <li>
+									<a href="{{url('products')}}/{{$item->cat_name}}">
+										<h4>{{$item->cat_name}}</h4></a>
+								 </li>
+								 @endif
+								 @endforeach
+
+				        </ul>
 						</li>
 
 					</ul>
@@ -76,7 +95,7 @@
 	<div class="m-cart">
 		<div class="nav-btns">
 			<div class="nav-cart">
-				<img src="images/cart.png"/>
+				<img src="{{Config::get('app.url')}}/theme/images/cart.png"/>
 				<span>0</span>
 			</div>
 		</div>

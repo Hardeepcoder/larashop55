@@ -2,6 +2,7 @@
 
 @section('content')
 @include('front.ourJs')
+
 <div class="greyBg">
     <div class="container">
 		<div class="wrapper">
@@ -31,24 +32,22 @@
         <h1 class="text-center">{{$catByUser}} </h1>
 		    <div class="row">
 		    		<div class="col-xs-6 col-sm-3">
-				    	<div class="nice-select">
-							<span class="current">Shop Categories</span>
-							<ul class="list">
-							   <li class="option selected">Some option</li>
+
+							<select id="catID">
+							   <option value="">Select a Category</option>
                  @foreach(App\cats::all() as $cList)
-                 <li class="option" id="cat{{$cList->id}}"
-                 value="{{$cList->id}}">{{$cList->cat_name}}</li>
+                 <option class="option" value="{{$cList->id}}">{{$cList->cat_name}}</option>
                  @endforeach
-							</ul>
-						</div>
+               </select>
+
 				    </div>
 				    <div class="col-xs-6 col-sm-3">
-						<select id="selectbox2">
-						    <option value="">Price</option>
-						    <option value="aye">Aye</option>
-						    <option value="eh">Eh</option>
-						    <option value="ooh">Ooh</option>
-						    <option value="whoop">Whoop</option>
+						<select id="priceID">
+						    <option value="">Select Price Range</option>
+						    <option value="0-100">0-100</option>
+						    <option value="100-300">100-300</option>
+						    <option value="300-500">300-500</option>
+						    <option value="500-1000">500-1000</option>
 						</select>
           </div>
 
@@ -57,13 +56,7 @@
 					<div class="row">
 
 						<div class="col-sm-4 pull-right">
-							<select id="selectbox3">
-							    <option value="">Sort By</option>
-							    <option value="aye">Aye</option>
-							    <option value="eh">Eh</option>
-							    <option value="ooh">Ooh</option>
-							    <option value="whoop">Whoop</option>
-							</select>
+							<button id="findBtn" class="btn btn-success">Find</button>
 						</div>
 						<div class="styleNm">16 style(s)</div>
 					</div>
@@ -71,6 +64,7 @@
         @endif
 		    </div>
 	    	<div class="row top25">
+
 
         @if(count($data)=="0")
         <div class="col-md-12" align="center">

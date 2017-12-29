@@ -2,10 +2,13 @@
 @section('title', 'Admin')
 
 @section('content')
+
 <script>
 $(document).ready(function(){
+
   $("#msg").hide();
   //alert("working");
+
   $("#btn").click(function(){
     $("#msg").show();
     var cat_id = $("#cat_id").val()
@@ -30,6 +33,9 @@ $(document).ready(function(){
     function(){
       $('#products').load('<?php echo url('admin/products');?>').fadeIn("slow");
     },100);
+$('#cat_id').select2();
+
+
 });
 </script>
 <div class="content">
@@ -45,6 +51,7 @@ $(document).ready(function(){
                           <input type="hidden" value="{{csrf_token()}}" id="token"/>
 
                           <label>Categories</label>
+
 
                           <select id="cat_id" class="form-control">
                             <option value="">please select a category</option>
@@ -80,20 +87,20 @@ $(document).ready(function(){
 
                     <div class="col-md-5">
                         <div class="card">
-                          <table  class="table table-hover table-striped" >
+                          <table width="100%" class="table table-hover table-striped" >
                             <tr >
                           <td colspan="5" align="right"><b>Total:</b> {{App\products::count()}}</td>
                             </tr>
                             <tr style="border-bottom:1px solid #ccc;">
-                              <th style="padding:10px">Product Name</th>
-                              <th style="padding:10px">Product Code</th>
+                              <th style="padding:10px"> Name</th>
+                              <th style="padding:10px"> Code</th>
                               <th style="padding:10px">Catgeory</th>
                               <th style="padding:10px">Price</th>
                               <th>Update</th>
                             </tr>
                           </table>
                             <div class="content"
-                             style="height:400px; overflow-y:scroll">
+                             style="height:400px; overflow-y:scroll; overflow-x:hidden">
 
                                 <div id="products">
                                   <img src="{{url('public/img/loading.gif')}}"
@@ -111,6 +118,7 @@ $(document).ready(function(){
 
             </div>
         </div>
+
 
 
 @endsection

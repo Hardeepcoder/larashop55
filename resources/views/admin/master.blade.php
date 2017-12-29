@@ -23,12 +23,16 @@
     <!--  CSS for Demo Purpose, don't include it in your project     -->
     <link href="{{Config::get('app.url')}}/admin_theme/assets/css/demo.css" rel="stylesheet" />
 
+		<link href="{{Config::get('app.url')}}/node_modules/select2/dist/css/select2.min.css"
+		rel="stylesheet"/>
 
     <!--     Fonts and icons     -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="{{Config::get('app.url')}}/admin_theme/assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
     <script src="{{Config::get('app.url')}}/admin_theme/assets/js/jquery-1.10.2.js" type="text/javascript"></script>
+
+
 </head>
 <body>
 
@@ -164,7 +168,7 @@
 
 	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 	<script src="{{Config::get('app.url')}}/admin_theme/assets/js/demo.js"></script>
-
+	<script src="{{Config::get('app.url')}}/node_modules/select2/dist/js/select2.min.js"></script>
 	<script type="text/javascript">
     	/*$(document).ready(function(){
 
