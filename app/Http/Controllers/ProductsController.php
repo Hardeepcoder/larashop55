@@ -30,83 +30,48 @@ class ProductsController extends Controller
           $start = $price[0];
           $end = $price[1];
 
+          //echo "both are selected";
           $data = DB::table('products')
           ->join('cats','cats.id','products.cat_id')
           ->where('products.cat_id',$cat_id)
           ->where('products.pro_price', ">=", $start)
           ->where('products.pro_price', "<=", $end)
           ->get();
-         //echo "both are selected";
+
        }
        else if($priceCount!="0"){
-        $price = explode("-",$request->price);
-
+         $price = explode("-",$request->price);
          $start = $price[0];
          $end = $price[1];
 
          //echo "price is selected";
          $data = DB::table('products')
          ->join('cats','cats.id','products.cat_id')
-         //->where('products.cat_id',$cat_id)
          ->where('products.pro_price', ">=", $start)
          ->where('products.pro_price', "<=", $end)
          ->get();
-       }else if($cat_id!=""){
+
+       }
+       else if($cat_id!=""){
          //echo "cat is selected";
          $data = DB::table('products')
          ->join('cats','cats.id','products.cat_id')
          ->where('products.cat_id',$cat_id)
-         //->where('products.pro_price', ">=", $start)
-        // ->where('products.pro_price', "<=", $end)
          ->get();
-       } else{
+       }
+       else{
          //echo "nothing is slected";
-         echo "<h1 align='center'>Please select atleast one filter from dropdown</h1>";
+         return "<h1 align='center'>Please select atleast one filter from dropdown</h1>";
+
        }
 
        if(count($data)=="0"){
-         echo "<h1 align='center'>no products found under this <b style='color:red'>"
-          . $start . "-" . $end . "</b> price range</h1>";
+         echo "<h1 align='center'>no products found under this Category</h1>";
        }else{
        return view('front.produtsPage',[
          'data' => $data, 'catByUser' => $data[0]->cat_name
        ]);
      }
-
-      /*if($cat_id!="" && $price!=""){
-           $data = DB::table('products')
-           ->join('cats','cats.id','products.cat_id')
-           ->where('products.cat_id',$cat_id)
-           ->where('products.pro_price', ">=", $start)
-           ->where('products.pro_price', "<=", $end)
-           ->get();
-
-         }else if($cat_id!=""){
-           $data = DB::table('products')
-           ->join('cats','cats.id','products.cat_id')
-           ->where('products.cat_id',$cat_id)
-           //->where('products.pro_price', ">=", $start)
-          // ->where('products.pro_price', "<=", $end)
-           ->get();
-         }else if($price!=""){
-           $data = DB::table('products')
-           ->join('cats','cats.id','products.cat_id')
-           //->where('products.cat_id',$cat_id)
-           ->where('products.pro_price', ">=", $start)
-           ->where('products.pro_price', "<=", $end)
-           ->get();
-         }
-         if(count($data)=="0"){
-           echo "<h1 align='center'>no products found under this <b style='color:red'>"
-            . $start . "-" . $end . "</b> price range</h1>";
-         }else{
-         return view('front.produtsPage',[
-           'data' => $data, 'catByUser' => $data[0]->cat_name
-         ]);
-       }
-
-       */
-
 
     }
 

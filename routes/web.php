@@ -11,15 +11,12 @@
 |
 */
 
-Route::get('test',function(){
-  return App\cats::with('childs')
-  ->where('p_id',0)
-  ->get();
-});
+
 
 
 Route::view('/', 'front.index');
 Auth::routes();
+Route::get('/logout', 'Auth\LoginController@logout');
 
 //products
 Route::view('products','front.products',['data'=> App\products::all(),

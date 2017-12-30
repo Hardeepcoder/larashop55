@@ -5,7 +5,8 @@
 
 	<div class="home-content">
 		<div class="row">
-		    <div class="banner"><img src="{{Config::get('app.url')}}/theme/images/banner1.jpg" alt="" /></div>
+		    <div class="banner">
+          <img src="{{Config::get('app.url')}}/theme/images/banner1.jpg" alt="" /></div>
 	    </div>
 	    <div class="container">
 			<div class="row">

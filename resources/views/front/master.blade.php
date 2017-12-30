@@ -23,8 +23,14 @@
 				<div class="col-sm-6">
 					<div class="account-link">
 						<ul>
-							<li><a href="/">MY ACCOUNT</a></li>
-							<li><a onclick="javascript:showDiv('slidingDiv');" href="javascript:;">SEARCH</a>
+							@if(Auth::check())
+							<li><a href="{{url('/home')}}">MY ACCOUNT</a></li>
+							<li><a href="{{url('/logout')}}">LOGOUT</a></li>
+							@else
+							<li><a href="{{url('/login')}}">LOGIN</a></li>
+							@endif
+							<li><a onclick="javascript:showDiv('slidingDiv');"
+								 href="javascript:;">SEARCH</a>
 								<div id="slidingDiv" class="srchBox">
 									<form action="{{url('search')}}">
 									 <input type="text" name="searchData" />
@@ -32,7 +38,7 @@
 											</form>
 						        </div>
 							</li>
-							<li><a href="/">LOGIN</a></li>
+
 						</ul>
 					</div>
 				</div>
@@ -41,18 +47,14 @@
     </div>
     <div class="container">
     	<div class="row">
-    		<div class="col-sm-2"><div class="logo"><a href="index.php"
-			class="logo-container"><img src="{{Config::get('app.url')}}/theme/images/logo.jpg" /></a></div></div>
+    		<div class="col-sm-2">
+					<div class="logo">
+						<a href="{{url('/')}}" class="logo-container"><img src="{{Config::get('app.url')}}/theme/images/logo.jpg" /></a></div></div>
     		<div class="col-sm-8">
 				<div class="nav-link">
 					<ul>
 						<li><a href="{{url('/products')}}">Products</a>
 							<ul class="dropdown">
-								<?php /*@foreach(App\cats::all() as $catList)
-				        <li><a href="{{url('products')}}/{{$catList->cat_name}}">
-													{{$catList->cat_name}}</a></li>
-				         @endforeach
-								 */?>
 								 @foreach(App\cats::with('childs')
 								 ->where('p_id',0)->get() as $item)
 								 @if($item->childs->count()>0)
