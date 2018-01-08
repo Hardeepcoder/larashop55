@@ -13,7 +13,6 @@
 
 
 
-
 Route::view('/', 'front.index');
 Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout');
@@ -31,6 +30,10 @@ Route::get('productsCat','ProductsController@productsCat');
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('dashboard','HomeController@index');
+    Route::view('myaccount', 'myaccount.index');
+    Route::get('myaccount/{link}',function($link){
+      return view('myaccount.index', ['link' => $link]);
+    });
 });
 
 //admin middleware start
@@ -62,6 +65,9 @@ Route::group(['prefix' => 'admin', 'middleware'=> ['auth' => 'admin']], function
     ]);
 
     Route::post('saveCategory','AdminController@saveCategory');
-
+    Route::view('users', 'admin.users', [
+      'data' => App\user::all()
+    ]);
+    Route::get('banUser', 'AdminController@banUser');
 
   });
