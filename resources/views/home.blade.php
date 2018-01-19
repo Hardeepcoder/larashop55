@@ -18,8 +18,8 @@
 		    </div>
 
         <div class="row top25">
-            <div class="panel itemBox">
-                <div class="prod">Dashboard</div>
+            <div class="panel panel-body">
+                <h2 align="left">Dashboard</h2>
 
                 <div class="panel-body">
                     @if (session('status'))
@@ -28,7 +28,20 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                  <div class="row">
+
+                    <div class="col-md-3">
+                      <a href="{{url('myaccount')}}"
+                       class="btn btn-default">My Account</a>
+                    </div>
+
+                    <div class="col-md-3">
+                      <a href="{{url('inbox')}}"
+                       class="btn btn-default">Messages</a>
+                    </div>
+
+
+                  </div>
 
                 </div>
             </div>

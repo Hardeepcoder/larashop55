@@ -1,11 +1,7 @@
 @extends('front.master')
 
 @section('content')
-<style>
-.myContent{
 
-}
-</style>
 
 <div class="greyBg">
     <div class="container">
@@ -56,24 +52,20 @@
                         @else
                         something else
                         @endif
-
                       </ul>
 
                       <div class="tab-content col-md-6">
                         <div id="profile" class="tab-pane fade in active">
-
                         your {{$link}} data
                         </div>
-
                         <div id="myorders" class="tab-pane fade in">
                           myorders tab
                         </div>
-
                         <div id="changepassword" class="tab-pane fade in">
-                          changepassword tabe
+                          changepassword tab
                         </div>
-
                       </div>
+
                     </div>
                     @else
                   <div class="myContent">
@@ -123,8 +115,9 @@
                       </div>
 
                       <div id="changepassword" class="tab-pane fade in">
-                        changepassword tabe
+                        change password tab
                       </div>
+
 
                     </div>
                   </div>

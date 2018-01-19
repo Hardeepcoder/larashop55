@@ -76,6 +76,13 @@
 									</a>
 								</li>
 
+								<li>
+									<a href="{{url('/admin/users')}}">
+										<i class="pe-7s-notebook"></i>
+										<p>Users</p>
+									</a>
+								</li>
+
             </ul>
     	</div>
     </div>

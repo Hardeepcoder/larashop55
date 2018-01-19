@@ -9,9 +9,31 @@
 
 <style>
 .greyBg{ margin-top:20px}
+.inner_msg{
+	clear: both;
+	padding: 10px;
+	margin: 0 auto;
+	width:99%;
+	background-color:#efefef;
+	border:1px solid #ccc;
+	min-height: 150px;
+}
+.inner_msg p{
+	color:#000; font-size:15px;
+	text-align: center;
+
+}
 .list option{
 	margin-top: 10px
 }
+.inboxMain{
+	min-height:400px; background-color:#fff; padding:10px;
+	border:1px solid #ccc
+}
+.inboxRow{
+	border-bottom:1px solid #ccc; padding:10px
+}
+
 </style>
 </head>
 <body>
@@ -21,9 +43,12 @@
 			<div class="row">
 				<div class="col-sm-6"><div class="tollNum">Tollfree : 888 888 8888</div></div>
 				<div class="col-sm-6">
-					<div class="account-link">
+
+					<div class="account-link ">
+
 						<ul>
 							@if(Auth::check())
+							<li><a href="{{url('/inbox')}}" >INBOX(0)</a></li>
 							<li><a href="{{url('/home')}}">MY ACCOUNT</a></li>
 							<li><a href="{{url('/logout')}}">LOGOUT</a></li>
 							@else

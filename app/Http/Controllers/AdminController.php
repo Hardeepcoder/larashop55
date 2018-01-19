@@ -99,6 +99,23 @@ class AdminController extends Controller
       }
     }
 
+    public function banUser(Request $request){
+      //return $request->all();
+      $status = $request->status;
+      $userID = $request->userID;
+
+      $update_status = DB::table('users')
+      ->where('id', $userID)
+      ->update([
+        'status' => $status
+      ]);
+      if($update_status){
+        echo "status updated successfully";
+      }
+
+
+    }
+
 
 
 
