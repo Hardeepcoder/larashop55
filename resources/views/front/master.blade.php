@@ -109,7 +109,9 @@
 		    <div class="col-sm-2">
 				<div class="nav-btns">
 					<div class="nav-cart">
-						<img src="{{Config::get('app.url')}}/theme/images/cart.png"/> CART(0)
+						<a href="{{url('cart')}}"><img src="{{Config::get('app.url')}}/theme/images/cart.png"/>
+						 CART({{Cart::count()}})
+					 </a>
 					</div>
 				</div>
 		    </div>

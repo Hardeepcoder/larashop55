@@ -90,7 +90,7 @@
               {{$p->pro_info}}</span>
 	    				<div class="addcart">
 	    					<div class="price">Rs {{$p->pro_price}}</div>
-	    					<div class="cartIco hidden-xs"><a href="/"></a></div>
+	    					<div class="cartIco hidden-xs"><a href="{{url('/cart/add')}}/{{$p->id}}"></a></div>
 	    				</div>
 	    			</div>
 	    		</div>
