@@ -1,5 +1,4 @@
 <?php
-
 Route::view('/', 'front.index');
 Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout');
@@ -10,12 +9,14 @@ Route::view('products','front.products',
 Route::get('products/{cat}','ProductsController@proCat');
 Route::get('search','ProductsController@search');
 Route::get('productsCat','ProductsController@productsCat');
+Route::get('details/{id}', 'ProductsController@details');
 // products functions end
 
 //Cart functions
 Route::get('cart', 'cartController@index');
 Route::get('cart/add/{id}', 'cartController@addItem');
 Route::get('cart/remove/{id}', 'cartController@removeItem');
+Route::get('cart/update/','cartController@update');
 //Cart functions end
 
 //user middleware
@@ -25,6 +26,7 @@ Route::group(['middleware' => 'auth'], function () {
   Route::view('myaccount', 'myaccount.index');
   Route::get('myaccount/{link}',function($link){
       return view('myaccount.index', ['link' => $link]);
+      Route::get('checkout', 'cartController@checkout');
   });
   //start inbox
   Route::view('inbox', 'myaccount.inbox', [
@@ -58,7 +60,13 @@ Route::group(['prefix' => 'admin', 'middleware'=> ['auth' => 'admin']], function
     Route::view('cats','admin.cats',[
       'data' => App\cats::all()
     ]);
+    Route::get('editCategory/{id}', function($id){
+      return view('admin.editCategory',[
+        'data' => App\cats::where('id',$id)->get()
+      ]);
+    });
     Route::post('saveCategory','AdminController@saveCategory');
+
     Route::view('users', 'admin.users', [
       'data' => App\user::all()
     ]);
