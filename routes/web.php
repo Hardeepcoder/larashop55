@@ -26,14 +26,18 @@ Route::group(['middleware' => 'auth'], function () {
   Route::view('myaccount', 'myaccount.index');
   Route::get('myaccount/{link}',function($link){
       return view('myaccount.index', ['link' => $link]);
-      Route::get('checkout', 'cartController@checkout');
   });
+  Route::get('checkout', 'checkoutController@index');
   //start inbox
   Route::view('inbox', 'myaccount.inbox', [
      'data' => App\inbox::all()
   ]);
   //update inbox
   Route::get('updateInbox', 'profileController@updateInbox');
+  Route::post('saveAddress','profileController@saveAddress');
+
+//coupons 
+Route::get('checkCoupon','checkoutController@checkCoupon');
 });
 
 //admin middleware start

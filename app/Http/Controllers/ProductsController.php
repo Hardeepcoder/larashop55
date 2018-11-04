@@ -12,7 +12,8 @@ class ProductsController extends Controller
     public function proCat(Request $request){
       $cat = $request->cat;
 
-      $data= DB::table('products')->join('cats','cats.id','products.cat_id')
+      $data= DB::table('cats')
+      ->join('products','cats.id','products.cat_id')
       ->where('cats.cat_name',$cat)->get();
       return view('front.products',[
         'data' => $data, 'catByUser' => $cat
@@ -87,6 +88,22 @@ class ProductsController extends Controller
       return view('front.products',[
         'data' => $data, 'catByUser' => $searchData
       ]);
+    }
+
+    public function details($id){
+      $data = products::find($id);
+    if(count($data)!=0){
+      return view('front.details',[
+       'data' => $data
+      ]);
+    }
+    
+    else{
+      return view('front.products',[
+        'data' => products::all(),
+        'catByUser' => 'Product not found',
+      ]);
+    }
     }
 
 

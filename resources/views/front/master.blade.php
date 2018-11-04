@@ -8,6 +8,7 @@
 <script type="text/javascript" src="{{Config::get('app.url')}}/theme/js/jquery-1.11.3.js"></script>
 
 <style>
+
 .greyBg{ margin-top:20px}
 .inner_msg{
 	clear: both;
@@ -249,8 +250,8 @@ $(function() {
   });
 </script>
 <script type="text/javascript">
-
     $(document).ready(function() {
+	
       $('select').niceSelect();
     //  FastClick.attach(document.body);
     });

@@ -1,38 +1,6 @@
 @extends('front.master')
   @section('content')
-  <script>
-  $(document).ready(function(){
-    $("#CartMsg").hide();
-    @foreach($data as $pro)
-    $("#upCart{{$pro->id}}").on('change keyup', function(){
-      var newQty = $("#upCart{{$pro->id}}").val();
-      var rowID = $("#rowID{{$pro->id}}").val();
-      $.ajax({
-          url:'{{url('/cart/update')}}',
-          data:'rowID=' + rowID + '&newQty=' + newQty,
-          type:'get',
-          success:function(response){
-            $("#CartMsg").show();
-            console.log(response);
-            $("#CartMsg").html(response);
-          }
-      });
-    });
-    @endforeach
-  $('#coupon_btn').click(function(){
-      var coupon_id = $('#coupon_id').val();
-      //alert(coupon_id);
-      $.ajax({
-        url:'{{url('/checkCoupon')}}',
-        data: 'code=' + coupon_id,
-        success:function(res){
-          alert(res);
-        }
-      })
-  });
-   
-  });
-  </script>
+
   <div class="greyBg">
       <div class="container">
   		<div class="wrapper">
@@ -51,16 +19,17 @@
           <!-- design of cart page -->
           <div class="row top20 hidden-xs">
                 <div class="col-sm-3">
-                  <div class="blk-box">
-                    <div class="blk-boxHd">Shopping Cart</div>
-                    <div class="blk-boxTxt hidden-sm">Do you want to look on order?</div>
-                    <div class="arrow-down"></div>
+                  <div class="wht-box">
+                    <div class="wht-boxHd">Shopping Cart</div>
+                    <div class="bwhtlk-boxTxt hidden-sm">Do you want to look on order?</div>
+                    
                   </div>
                 </div>
                 <div class="col-sm-3">
-                  <div class="wht-box">
-                    <div class="wht-boxHd">Billing &amp; Shipping</div>
-                    <div class="wht-boxTxt hidden-sm">Where should we send this order?</div>
+                  <div class="blk-box">
+                    <div class="blk-boxHd">Billing &amp; Shipping</div>
+                    <div class="blk-boxTxt hidden-sm">Where should we send this order?</div>
+                    <div class="arrow-down"></div>
                   </div>
                 </div>
                 <div class="col-sm-3">
@@ -77,11 +46,43 @@
                 </div>
             </div>
          </div>
+<br><hr>
+<div class="row ">
 
+<form action="{{url('/')}}" method="post">
+<h3 class="text-center">Fill billing address</h3>
+  <div class="form-group">
+        <div class="col-md-6">
+            <!-- First name -->
+            <input type="text"  class="form-control" placeholder="Full name" name="name">
+            <br>
+            <input type="email"  class="form-control" placeholder="Email" name="email">
+            <br>
+            <input type="text"  class="form-control" placeholder="Phone number" name="phone">
+            <br>
+            <input type="text"  class="form-control" placeholder="City name" name="city">
+        </div>
+        <div class="col-md-6">
+            <!-- Last name -->
+            <input type="text"  class="form-control" placeholder="State" name="state">
+            <br>
+            <input type="text"  class="form-control" placeholder="Country" name="country">
+            <br>
+            <textarea  class="form-control" rows="4" placeholder="Full Address"
+             name="full_address"></textarea>
+        </div>
+
+       
+    </div>
+    
+   
+</form>
+</div>
+<br> <hr>
                 <div class="row">
                   <div class="cart">
                       <div class="col-sm-12">
-                        <h2>Shopping Basket</h2>
+                        <h3 class="text-center">Shopping Basket</h3>
                         <div class="row">
                             <div class="col-sm-8">
                               @if(isset($msg))
@@ -108,9 +109,7 @@
                                       <input type="hidden" value="{{$pro->rowId}}"
                                        id="rowID{{$pro->id}}"/>
                                     <div class="cart-qty"> <span>Qty : </span>
-                                        <input type="number" max="10" min="1"
-                                        value="{{$pro->qty}}" class="qty-fill"
-                                        id="upCart{{$pro->id}}">
+                                    {{$pro->qty}}
                                       </div>
                                       <a class="cart-remove btn btn-success" >Update</a>
                                       <a href="{{url('cart/remove')}}/{{$pro->rowId}}"
@@ -132,18 +131,7 @@
                               </div>
                               @endforeach
 
-                              <div class="col-xs-12 col-sm-12 col-md-6">
-                                <div class="chk-coupon">
-                                  <label>Coupon Code (if any)</label>
-                                  <div class="input-group">
-                                      <input type="text" class="form-control" id="coupon_id" >
-                                      <span class="input-group-btn">
-                                      <input type="button" class="btn btn-primary fld-btn"
-                                      value="Redeem Coupon" id="coupon_btn"/>
-                                      </span>
-                                  </div>
-                                </div>
-                            </div>
+                              
                             <div class="clearfix"></div>
                             </div>
                             <div class="col-sm-4">
@@ -165,11 +153,10 @@
                                     </tr>
                                   </tbody>
                                 </table>
-                                <input type="submit" class="btn update btn-block"
-                                 value="Continue Shopping">
+                               
                                 <a href="{{url('checkout')}}"
                                 class="btn check_out btn-block"
-                                >checkout</a>
+                                >Place order</a>
                                 </div>
                               </div>
                         </div>
