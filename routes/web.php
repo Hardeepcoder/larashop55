@@ -38,6 +38,11 @@ Route::group(['middleware' => 'auth'], function () {
 
 //coupons 
 Route::get('checkCoupon','checkoutController@checkCoupon');
+
+Route::post('placeOrder','checkoutController@placeOrder');
+Route::get('thankyou',function(){
+  return view('thankyou');
+});
 });
 
 //admin middleware start

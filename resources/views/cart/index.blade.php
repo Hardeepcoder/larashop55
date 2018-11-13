@@ -3,6 +3,7 @@
   <script>
   $(document).ready(function(){
     $("#CartMsg").hide();
+    //$('#CartTotal').hide();
     @foreach($data as $pro)
     $("#upCart{{$pro->id}}").on('change keyup', function(){
       var newQty = $("#upCart{{$pro->id}}").val();
@@ -26,7 +27,8 @@
         url:'{{url('/checkCoupon')}}',
         data: 'code=' + coupon_id,
         success:function(res){
-          alert(res);
+       // alert(res);
+       $('#cartTotal').html(res);
         }
       })
   });
@@ -146,8 +148,8 @@
                             </div>
                             <div class="clearfix"></div>
                             </div>
-                            <div class="col-sm-4">
-                            <div class="cart-total">
+                            <div class="col-sm-4" id="cartTotal">
+                            <div class="cart-total" >
                                 <h4>Total Amount</h4>
                                 <table>
                                   <tbody>
@@ -159,17 +161,16 @@
                                       <td>Tax (%)</td>
                                       <td>$ {{Cart::tax()}}</td>
                                     </tr>
+                                   
+                                  
                                     <tr>
                                       <td>Grand Total</td>
                                       <td>$ {{Cart::total()}}</td>
                                     </tr>
                                   </tbody>
                                 </table>
-                                <input type="submit" class="btn update btn-block"
-                                 value="Continue Shopping">
-                                <a href="{{url('checkout')}}"
-                                class="btn check_out btn-block"
-                                >checkout</a>
+                          
+                         <a href="{{url('checkout')}}" class="btn check_out btn-block">checkout</a>
                                 </div>
                               </div>
                         </div>

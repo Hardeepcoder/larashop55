@@ -49,34 +49,42 @@
 <br><hr>
 <div class="row ">
 
-<form action="{{url('/')}}" method="post">
-<h3 class="text-center">Fill billing address</h3>
+<form action="{{url('/placeOrder')}}" method="post">
+<input type="hidden" value="{{csrf_token()}}" name="_token"/>
+<h3 class="text-center">Fill billing address </h3>
   <div class="form-group">
         <div class="col-md-6">
             <!-- First name -->
-            <input type="text"  class="form-control" placeholder="Full name" name="name">
-            <br>
+            <input type="text"  class="form-control" placeholder="Full name" name="fullname">
+            <span style="color:red">{{ $errors->first('fullname') }}</span>
+            <br>  <br>
             <input type="email"  class="form-control" placeholder="Email" name="email">
-            <br>
+            <span style="color:red">{{ $errors->first('email') }}</span>
+            <br>  <br>
             <input type="text"  class="form-control" placeholder="Phone number" name="phone">
-            <br>
+            <span style="color:red">{{ $errors->first('phone') }}</span>
+            <br>  <br>
             <input type="text"  class="form-control" placeholder="City name" name="city">
+            <span style="color:red">{{ $errors->first('city') }}</span>
         </div>
         <div class="col-md-6">
             <!-- Last name -->
             <input type="text"  class="form-control" placeholder="State" name="state">
-            <br>
+            <span style="color:red">{{ $errors->first('state') }}</span>
+            <br>  <br>
             <input type="text"  class="form-control" placeholder="Country" name="country">
-            <br>
-            <textarea  class="form-control" rows="4" placeholder="Full Address"
-             name="full_address"></textarea>
+            <span style="color:red">{{ $errors->first('country') }}</span>
+            <br>  <br>
+            <textarea  class="form-control" rows="5" placeholder="Full Address"
+             name="fullAddress"></textarea>
+             <span style="color:red">{{ $errors->first('fullAddress') }}</span>
         </div>
 
        
     </div>
     
    
-</form>
+
 </div>
 <br> <hr>
                 <div class="row">
@@ -87,8 +95,9 @@
                             <div class="col-sm-8">
                               @if(isset($msg))
                               <div class="alert alert-info">{{$msg}}</div>
+                              
                               @endif
-                              <div class="alert alert-info" id="CartMsg"></div>
+                             
 
                             @foreach($data as $pro)
 
@@ -154,9 +163,9 @@
                                   </tbody>
                                 </table>
                                
-                                <a href="{{url('checkout')}}"
+                                <input type="submit"
                                 class="btn check_out btn-block"
-                                >Place order</a>
+                                value="Place order"/>
                                 </div>
                               </div>
                         </div>
@@ -179,7 +188,7 @@
                 </div>
                 @endif
 
-
+</form>
   <!-- design of cart page  end -->
 </div>
 </div>
