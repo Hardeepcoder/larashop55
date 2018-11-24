@@ -1,4 +1,4 @@
-<h2>after clone my project from this repo if you facing warnning or error please run command "composer install"
+<h2>after clone my project from this repo if you facing warning or error please run command "composer install"
 or <a href="mailto:hardeepphp@yahoo.com">Email</a> me your error screenshot <a href="mailto:hardeepphp@yahoo.com">Here</a></h2>
 
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
