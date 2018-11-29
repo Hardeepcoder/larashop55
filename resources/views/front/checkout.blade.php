@@ -55,10 +55,12 @@
   <div class="form-group">
         <div class="col-md-6">
             <!-- First name -->
-            <input type="text"  class="form-control" placeholder="Full name" name="fullname">
+            <input type="text"  class="form-control" placeholder="Full name" name="fullname" 
+            value="{{Auth::user()->name}}">
             <span style="color:red">{{ $errors->first('fullname') }}</span>
             <br>  <br>
-            <input type="email"  class="form-control" placeholder="Email" name="email">
+            <input type="email"  class="form-control" placeholder="Email" name="email"
+            value="{{Auth::user()->email}}">
             <span style="color:red">{{ $errors->first('email') }}</span>
             <br>  <br>
             <input type="text"  class="form-control" placeholder="Phone number" name="phone">

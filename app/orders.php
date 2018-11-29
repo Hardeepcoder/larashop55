@@ -30,4 +30,9 @@ class orders extends Model
 
        Cart::destroy(); // make cart empty
     }
+
+
+    public function orders_products(){
+      return $this->hasMany('App\orders_products', 'orders_id');
+    }
 }

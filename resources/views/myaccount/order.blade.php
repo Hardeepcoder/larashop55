@@ -15,16 +15,15 @@
                  <li><span class="dot">/</span>
 			          <a href="{{url('/myaccount')}}"> {{Auth::user()->name}}</a></li>
                 <li><span class="dot">/</span>
-                  <a href="">Thank You</a>
+                  <a href="">Order Details</a>
 			        </ul>
                         </div>
                     </div>
-         </div>
-        
+	     </div>
 
-          <div class="row top25 inboxMain text-center" >
-            <img src="{{Config::get('app.url')}}/public/img/thankyou.jpg"   />
-         </div>
+          <div class="row top25 inboxMain" >
+                    
+              </div>
 
        
 

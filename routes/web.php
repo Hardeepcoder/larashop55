@@ -1,4 +1,7 @@
 <?php
+Route::get('test', function(){
+return App\orders::with('orders_products')->get();
+});
 Route::view('/', 'front.index');
 Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout');
@@ -43,6 +46,19 @@ Route::post('placeOrder','checkoutController@placeOrder');
 Route::get('thankyou',function(){
   return view('thankyou');
 });
+
+// users - orders details
+
+Route::get('orderDetails/{id}',function($id){
+  return view('myaccount.order');
+});
+
+Route::get('trackOrder/{id}',function($id){
+  $orderData = App\orders::where('id',$id)->get();
+  return view('myaccount.track',['data' => $orderData]);
+});
+
+
 });
 
 //admin middleware start
@@ -80,4 +96,6 @@ Route::group(['prefix' => 'admin', 'middleware'=> ['auth' => 'admin']], function
       'data' => App\user::all()
     ]);
     Route::get('banUser', 'AdminController@banUser');
+    Route::get('/orders','AdminController@orders');
+    Route::get('orderStatusUpdate','AdminController@orderStatusUpdate');
 });

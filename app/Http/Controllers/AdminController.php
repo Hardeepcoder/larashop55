@@ -85,7 +85,21 @@ class AdminController extends Controller
 
     public function saveCategory(Request $request){
       $cat_name = $request->cat_name;
+      $id = $request->id;
+      if(isset($id)){
+      $add_cat = DB::table('cats')->where('id',$id)
+      ->update([
+        'cat_name' => $cat_name,
+        'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+        'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
 
+      ]);
+      if($add_cat){
+        echo "done";
+      }else{
+        echo "error";
+      }
+    }else{
       $add_cat = DB::table('cats')->insert([
         'cat_name' => $cat_name,
         'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
@@ -97,6 +111,7 @@ class AdminController extends Controller
       }else{
         echo "error";
       }
+    }
     }
 
     public function banUser(Request $request){
@@ -112,9 +127,33 @@ class AdminController extends Controller
       if($update_status){
         echo "status updated successfully";
       }
-
-
     }
+
+
+      public function orders(){
+        $orders = DB::table('orders')
+       ->Select('users.name as username','users.id as userId',
+       'orders.id','orders.status','orders.total','orders.created_at')
+        ->leftJoin('users', 'users.id', 'orders.user_id')
+        ->orderBy('orders.id','DESC')
+        ->get();
+        return view('admin.orders',compact('orders'));
+      }
+
+      public function orderStatusUpdate(Request $request){
+        if(isset($request->order_id) && isset($request->order_status)){
+          //save order status
+          $uptStatus =DB::table('orders')->where('id',$request->order_id)
+          ->update(['status' => $request->order_status]);
+  
+          if($uptStatus){
+            echo "Order " . $request->order_status;
+          }
+          else{
+            echo "error";
+          }
+        }
+      }
 
 
 

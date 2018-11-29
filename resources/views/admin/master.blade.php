@@ -32,7 +32,15 @@
     <link href="{{Config::get('app.url')}}/admin_theme/assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
     <script src="{{Config::get('app.url')}}/admin_theme/assets/js/jquery-1.10.2.js" type="text/javascript"></script>
 
-
+<style>
+    .row_head div{ border:1px solid #efefef}
+    .row_body, .row_head div{
+        padding:10px;
+        text-align:center
+    
+    }
+    .row_body{ border-bottom:1px solid #efefef}
+    </style>
 </head>
 <body>
 
@@ -64,7 +72,7 @@
 
 								<li>
 										<a href="{{url('/admin/addProduct')}}">
-												<i class="pe-7s-note2"></i>
+												<i class="pe-7s-note"></i>
 												<p>Product</p>
 										</a>
 								</li>
@@ -81,7 +89,15 @@
 										<i class="pe-7s-notebook"></i>
 										<p>Users</p>
 									</a>
+                                </li>
+                                
+                                <li>
+									<a href="{{url('/admin/orders')}}">
+										<i class="pe-7s-note2"></i>
+										<p>Orders</p>
+									</a>
 								</li>
+
 
             </ul>
     	</div>
