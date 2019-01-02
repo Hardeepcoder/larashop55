@@ -1,6 +1,16 @@
-<h1> if you have error regarding database tables please download <b style="color:green">SQL </b> file by <a href="https://raw.githubusercontent.com/Hardeepcoder/larashop55/master/laraShop55.sql"> Click here</></h1>
+<h1> if you have error regarding database tables please download <b style="color:green">SQL </b> file by <a href="https://raw.githubusercontent.com/Hardeepcoder/larashop55/master/laraShop55.sql"> Click here</a></h1>
 <h2>after clone my project from this repo if you facing warning or error please run command "composer install"
 or <a href="mailto:hardeepphp@yahoo.com">Email</a> me your error screenshot <a href="mailto:hardeepphp@yahoo.com">Here</a></h2>
+
+
+
+
+<h1 style="text-align:center; margin:10px" align="center">
+  <a href="https://www.youtube.com/playlist?list=PLWrTy7mdWLT1RINapoRUdopfoxXt9oDtg" class="btn"
+     target="_blank">Video Tutorial</a>
+</h1>
+
+<hr>
 
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
@@ -10,6 +20,7 @@ or <a href="mailto:hardeepphp@yahoo.com">Email</a> me your error screenshot <a h
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
+
 
 ## About Laravel
 
