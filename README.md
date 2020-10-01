@@ -1,4 +1,5 @@
-<h3>First of all just run these commands:</h3>
+<h3>First of all just run these commands and learn how to work.:</h3>
+<p>This is very helpfull for beginners</p>
 <ul>
   <li>composer install</li>
    <li>npm install</li>
