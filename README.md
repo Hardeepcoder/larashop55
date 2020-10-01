@@ -7,7 +7,7 @@
    <li>php artisan migrate</li>
  </ul>
 
-<h3> if you have error regarding database tables please download <b style="color:green">SQL </b> file by <a href="https://raw.githubusercontent.com/Hardeepcoder/larashop55/master/laraShop55.sql"> Click here</a></h3>
+<h3> if you're have error regarding database tables please download <b style="color:green">SQL </b> file by <a href="https://raw.githubusercontent.com/Hardeepcoder/larashop55/master/laraShop55.sql"> Click here</a></h3>
 <h4>after clone my project from this repo if you facing warning or error please run command "composer install"
 or <a href="mailto:hardeepphp@yahoo.com">Email</a> me your error screenshot <a href="mailto:hardeepphp@yahoo.com">Here</a></h4>
 
@@ -43,11 +43,11 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 - [Robust background job processing](https://laravel.com/docs/queues).
 - [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb combination of simplicity, elegance, and innovation give you tools you need to build any application with which you are tasked.
+Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb combination of simplicity, elegance, and innovation gives you tools you need to build any application with which you are tasked.
 
 ## Learning Laravel
 
-Laravel has the most extensive and thorough documentation and video tutorial library of any modern web application framework. The [Laravel documentation](https://laravel.com/docs) is thorough, complete, and makes it a breeze to get started learning the framework.
+Laravel has the most extensive and thorough documentation and video tutorial library of any modern web application framework. This [Laravel documentation](https://laravel.com/docs) is thorough, complete, and makes it a breeze to get started learning the framework.
 
 If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 900 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
 
