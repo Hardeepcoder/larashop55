@@ -7,9 +7,9 @@
    <li>php artisan migrate</li>
  </ul>
 
-<h3> if you have error regarding database tables please download <b style="color:green">SQL </b> file by <a href="https://raw.githubusercontent.com/Hardeepcoder/larashop55/master/laraShop55.sql"> Click here</a></h3>
-<h4>after clone my project from this repo if you facing warning or error please run command "composer install"
-or <a href="mailto:hardeepphp@yahoo.com">Email</a> me your error screenshot <a href="mailto:hardeepphp@yahoo.com">Here</a></h4>
+<h3> If you have any error regarding database tables please <a href="https://raw.githubusercontent.com/Hardeepcoder/larashop55/master/laraShop55.sql">download</a> SQL file. </h3>
+<h4>after clone my project from this repo if you are facing warning or error please run command "composer install"
+or <a href="mailto:hardeepphp@yahoo.com">Email</a> me your error screenshot <a href="mailto:hardeepphp@yahoo.com">here</a>.</h4>
 
 
 
