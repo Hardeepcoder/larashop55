@@ -1,13 +1,13 @@
 <h3>First of all just run these commands:</h3>
 <ul>
-  <li>composer install</li>
-   <li>npm install</li>
+  <li>to install composer </li>
+   <li>to  install npm </li>
    <li>cp .env.example .env</li>
    <li>php artisan key:generate</li>
    <li>php artisan migrate</li>
  </ul>
 
-<h3> if you have error regarding database tables please download <b style="color:green">SQL </b> file by <a href="https://raw.githubusercontent.com/Hardeepcoder/larashop55/master/laraShop55.sql"> Click here</a></h3>
+<h3> if you have error regarding database tables please download (error then download)  <b style="color:green">SQL </b> file by <a href="https://raw.githubusercontent.com/Hardeepcoder/larashop55/master/laraShop55.sql"> Click here</a></h3>
 <h4>after clone my project from this repo if you facing warning or error please run command "composer install"
 or <a href="mailto:hardeepphp@yahoo.com">Email</a> me your error screenshot <a href="mailto:hardeepphp@yahoo.com">Here</a></h4>
 
@@ -46,6 +46,7 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb combination of simplicity, elegance, and innovation give you tools you need to build any application with which you are tasked.
 
 ## Learning Laravel
+## it is a best documentation and video tutorial library
 
 Laravel has the most extensive and thorough documentation and video tutorial library of any modern web application framework. The [Laravel documentation](https://laravel.com/docs) is thorough, complete, and makes it a breeze to get started learning the framework.
 
