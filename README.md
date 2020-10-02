@@ -1,11 +1,11 @@
 <h3>First of all just run these commands:</h3>
-<ul>
+<ol type=i>
   <li>composer install</li>
    <li>npm install</li>
    <li>cp .env.example .env</li>
    <li>php artisan key:generate</li>
    <li>php artisan migrate</li>
- </ul>
+ </ol>
 
 <h3> if you have error regarding database tables please download <b style="color:green">SQL </b> file by <a href="https://raw.githubusercontent.com/Hardeepcoder/larashop55/master/laraShop55.sql"> Click here</a></h3>
 <h4>after clone my project from this repo if you facing warning or error please run command "composer install"
