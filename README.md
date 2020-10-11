@@ -13,7 +13,6 @@ or <a href="mailto:hardeepphp@yahoo.com">Email</a> me your error screenshot <a h
 
 
 
-
 <h3 style="text-align:center; margin:10px" align="center">
   <a href="https://www.youtube.com/playlist?list=PLWrTy7mdWLT1RINapoRUdopfoxXt9oDtg" class="btn"
      target="_blank">Video Tutorial</a>
@@ -29,7 +28,6 @@ or <a href="mailto:hardeepphp@yahoo.com">Email</a> me your error screenshot <a h
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
-
 
 ## About Laravel
 
